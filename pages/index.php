@@ -11,7 +11,7 @@
 </head>
 <body class="font-sans text-gray-800 bg-gradient-to-b from-sky-50 to-white">
 <?php include '../template/navbar.php';?>
-<?php include '../template/footer.php';?>
+
     <!-- Hero Section -->
     <div class="relative">
         <!-- Full-width background image -->
@@ -480,6 +480,9 @@
             }));
         });
     </script>
+
+ <!-- FOOTER -->
+<?php include '../template/footer.php';?>
 
     <!-- Back to top button -->
     <div x-data="{ showButton: false }" @scroll.window="showButton = window.pageYOffset > 500">
