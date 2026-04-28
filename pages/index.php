@@ -15,7 +15,7 @@
     <!-- Hero Section -->
     <div class="relative">
         <!-- Full-width background image -->
-        <div class="absolute inset-0 bg-cover bg-center z-0" style="background-image: url('https://images.unsplash.com/photo-1595434091143-b375ced5fe5c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); height: 85vh;">
+        <div class="absolute inset-0 bg-cover bg-center z-0" style="background-image: url('https://img3.wallspic.com/previews/2/4/6/2/62642/62642-hulk-film-pc_game-fictional_character-superhero_movie-x750.jpg'); height: 85vh;">
             <div class="absolute inset-0 bg-black opacity-20"></div>
         </div>
         
@@ -23,11 +23,11 @@
         <!-- Hero Content -->
         <div class="container mx-auto px-6 pt-32 pb-48 relative z-10" x-data="{ fadeIn: false }" x-init="setTimeout(() => fadeIn = true, 500)">
             <div class="max-w-3xl transition-all duration-1000" :class="fadeIn ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-10'">
-                <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">Where Imaginations <br>Come to Life</h1>
-                <p class="text-xl text-white mb-8 md:pr-12">Premium vinyl playsets designed for endless adventures, built to last for generations of fun.</p>
+                <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">We offer cute action figures <br>that add joy and charm to every collection</h1>
+                <p class="text-xl text-white mb-8 md:pr-12">Premium action figures crafted for endless adventures and lasting fun across generations.</p>
                 <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                     <a href="#featured" class="bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold py-3 px-8 rounded-lg transition transform hover:-translate-y-1 inline-flex items-center justify-center">
-                        <span>Explore Playsets</span>
+                        <span>Explore the collection</span>
                         <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                     <a href="#contact" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-gray-900 font-bold py-3 px-8 rounded-lg transition transform hover:-translate-y-1 inline-flex items-center justify-center">
@@ -37,6 +37,66 @@
             </div>
         </div>
     </div>
+
+    <!-- Featured Action Figures -->
+<div class="py-20 bg-white" id="featured">
+    <div class="container mx-auto px-6">
+
+        <!-- Title -->
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                Collection Action Figures
+            </h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">
+                A collection of premium action figures featuring highly detailed designs, unique styles, and high-quality craftsmanship. perfect for both seasoned collectors and beginners.
+            </p>
+        </div>
+
+        <!-- Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+
+            <!-- Card 1 -->
+            <div class="bg-gray-50 rounded-xl overflow-hidden shadow hover:shadow-xl transition transform hover:-translate-y-1">
+                <img src="https://images.unsplash.com/photo-1613771404784-3a6b7c1b1a6a" class="w-full h-64 object-cover" alt="Action Figure 1">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Cyber Hero X</h3>
+                    <p class="text-gray-600 mb-4">Action figure futuristik dengan detail armor dan pose dinamis.</p>
+                    <a href="#" class="text-yellow-600 font-semibold hover:underline">View Details →</a>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-gray-50 rounded-xl overflow-hidden shadow hover:shadow-xl transition transform hover:-translate-y-1">
+                <img src="https://images.unsplash.com/photo-1608889175638-3c0a1d6c0d9e" class="w-full h-64 object-cover" alt="Action Figure 2">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Shadow Ninja</h3>
+                    <p class="text-gray-600 mb-4">Karakter ninja stealth dengan senjata lengkap dan pose battle-ready.</p>
+                    <a href="#" class="text-yellow-600 font-semibold hover:underline">View Details →</a>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-gray-50 rounded-xl overflow-hidden shadow hover:shadow-xl transition transform hover:-translate-y-1">
+                <img src="https://images.unsplash.com/photo-1612831455546-9f1b8b3a1b7a" class="w-full h-64 object-cover" alt="Action Figure 3">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Galaxy Warrior</h3>
+                    <p class="text-gray-600 mb-4">Prajurit luar angkasa dengan armor galaksi dan senjata plasma.</p>
+                    <a href="#" class="text-yellow-600 font-semibold hover:underline">View Details →</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Button -->
+        <div class="text-center mt-12">
+            <a href="#" class="bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold py-3 px-8 rounded-lg transition inline-flex items-center">
+                <span>See More Figures</span>
+                <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+
+    </div>
+</div>
 
     <!-- Features Section -->
     <div class="py-20 bg-white" id="features">

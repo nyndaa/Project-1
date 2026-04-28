@@ -9,11 +9,11 @@
 <!-- Tailwind -->
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-<nav class="bg-black text-white px-6 py-4 flex justify-between items-center relative z-10">
+<nav class="bg-yellow-500 text-gray-900 px-6 py-4 flex justify-between items-center relative z-10">
 
     <!-- Logo -->
     <div class="font-bold text-2xl">
-        Demo
+        Cuttiest.co
     </div>
 
     <!-- Menu Desktop -->
