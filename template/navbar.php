@@ -13,7 +13,7 @@
 
     <div class="hidden md:flex space-x-8 font-semibold uppercase text-sm tracking-wide">
         <a href="#" class="hover:text-yellow-500 transition-colors">Home</a>
-        <a href="#" class="hover:text-yellow-500 transition-colors">Catalog</a>
+        <a href="/Project-1/pages/shoppages.php" class="hover:text-yellow-500 transition-colors">Catalog</a>
         <a href="#" class="hover:text-yellow-500 transition-colors">Best Sellers</a>
         <a href="#" class="hover:text-yellow-500 transition-colors">Promo</a>
     </div>
