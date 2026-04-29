@@ -11,11 +11,18 @@
     <style>
         [x-cloak] { display: none !important; }
     </style>
+    <?php 
+    include "../config/koneksi.php";
+    $query = "SELECT * FROM produk";
+    $result = mysqli_query($conn,$query);
+    ?>
 </head>
 <body class="font-sans text-gray-800 bg-gray-50">
 
     <?php include '../template/navbar.php';?>
+    <div>
 
+</div>
     <header class="pt-32 pb-10 bg-white border-b border-gray-100 shadow-sm">
         <div class="container mx-auto px-6">
             <h1 class="text-3xl font-black text-gray-900 italic uppercase tracking-tighter">
@@ -25,28 +32,29 @@
         </div>
     </header>
 
-    <main class="py-10" x-data="{ 
-        search: '', 
-        selectedCategory: 'All',
-products: [
-    { id: 1, name: 'Cyber Hero X', price: 89, cat: 'Sci-Fi', img: 'https://picsum.photos/id/26/500/600' },
-    { id: 2, name: 'Storm Trooper Custom', price: 120, cat: 'Sci-Fi', img: 'https://picsum.photos/id/103/500/600' },
-    { id: 3, name: 'Mecha Samurai', price: 210, cat: 'Robot', img: 'https://picsum.photos/id/201/500/600' },
-    { id: 4, name: 'Neon Valkyrie', price: 95, cat: 'Anime', img: 'https://picsum.photos/id/445/500/600' },
-    { id: 5, name: 'Iron Sentinel', price: 150, cat: 'Robot', img: 'https://picsum.photos/id/1060/500/600' },
-    { id: 6, name: 'Dark Knight Rises', price: 135, cat: 'Superhero', img: 'https://picsum.photos/id/1070/500/600' },
-    { id: 7, name: 'Pikachu Cosplay', price: 65, cat: 'Anime', img: 'https://picsum.photos/id/237/500/600' },
-    { id: 8, name: 'Optimus Prime G1', price: 250, cat: 'Robot', img: 'https://picsum.photos/id/433/500/600' },
-    { id: 9, name: 'Iron Man MK-50', price: 180, cat: 'Superhero', img: 'https://picsum.photos/id/577/500/600' }
-],
-        get filteredProducts() {
-            return this.products.filter(p => {
-                const matchSearch = p.name.toLowerCase().includes(this.search.toLowerCase());
-                const matchCat = this.selectedCategory === 'All' || p.cat === this.selectedCategory;
-                return matchSearch && matchCat;
-            });
-        }
-    }">
+  
+<main class="py-10"
+x-data="{
+    search: '',
+    selectedCategory: 'All',
+    products: [],
+
+    init() {
+        fetch('data_produk.php')
+            .then(res => res.json())
+            .then(data => this.products = data)
+            .catch(err => console.log('error:', err));
+    },
+
+    get filteredProducts() {
+        return this.products.filter(p => {
+            const matchSearch = p.name.toLowerCase().includes(this.search.toLowerCase());
+            const matchCat = this.selectedCategory === 'All' || p.cat === this.selectedCategory;
+            return matchSearch && matchCat;
+        });
+    }
+}"
+x-init="init()">
         <div class="container mx-auto px-6">
             <div class="flex flex-col lg:flex-row gap-10">
                 
@@ -84,34 +92,27 @@ products: [
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
                         <template x-for="product in filteredProducts" :key="product.id">
-                            <div class="group bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-500">
-                                <div class="relative aspect-[4/5] overflow-hidden bg-gray-100">
-                                    <img :src="product.img" :alt="product.name" 
-                                         class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                                    
-                                    <div class="absolute top-4 left-4">
-                                        <span class="bg-white/90 backdrop-blur-md text-[10px] font-black px-3 py-1.5 rounded-full uppercase tracking-tighter shadow-sm text-gray-900" x-text="product.cat"></span>
-                                    </div>
-                                    
-                                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center gap-3">
-                                        <button class="bg-white text-gray-900 p-4 rounded-full hover:bg-yellow-500 transition shadow-lg hover:scale-110 active:scale-95">
-                                            <i class="fas fa-cart-plus text-lg"></i>
-                                        </button>
-                                        <a href="detailmenu.php" class="bg-yellow-500 text-gray-900 p-4 rounded-full hover:bg-white transition shadow-lg hover:scale-110 active:scale-95">
-                                            <i class="fas fa-eye text-lg"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                
-                                <div class="p-5">
-                                    <h3 class="font-bold text-gray-900 text-lg mb-1 truncate" x-text="product.name"></h3>
-                                    <div class="flex items-end justify-between">
-                                        <p class="text-yellow-600 font-black text-2xl tracking-tight" x-text="'$' + product.price + '.00'"></p>
-                                        <span class="text-xs text-gray-400 font-medium">In Stock</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </template>
+
+    <div class="group bg-white rounded-3xl overflow-hidden border">
+
+        <!-- GAMBAR -->
+        <div class="relative aspect-[4/5] overflow-hidden bg-gray-100">
+            <img :src="product.img"
+                 class="w-full h-full object-cover">
+        </div>
+
+        <!-- CATEGORY -->
+        <span x-text="product.cat"></span>
+
+        <!-- NAMA -->
+        <h3 x-text="product.name"></h3>
+
+        <!-- HARGA -->
+        <p x-text="'Rp ' + product.price"></p>
+
+    </div>
+
+</template>
                     </div>
                 </div>
 
