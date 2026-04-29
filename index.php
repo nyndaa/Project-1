@@ -14,7 +14,7 @@
 </head>
 <body class="font-sans text-gray-800 bg-gray-50 selection:bg-yellow-200">
 
-    <?php include '../template/navbar.php';?>
+    <?php include 'template/navbar.php'; ?>
 
     <section class="relative min-h-screen flex items-center overflow-hidden">
         <div class="absolute inset-0 z-0">
@@ -195,7 +195,7 @@
         </div>
     </section>
 
-    <?php include '../template/footer.php';?>
+    <?php include 'template/footer.php';?>
 
     <script>
         document.addEventListener('alpine:init', () => {
