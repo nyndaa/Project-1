@@ -13,7 +13,7 @@
 
     <div class="hidden md:flex space-x-8 font-semibold uppercase text-sm tracking-wide">
         <a href="#" class="hover:text-yellow-500 transition-colors">Home</a>
-        <a href="#" class="hover:text-yellow-500 transition-colors">Catalog</a>
+        <a href="/TokoCantikBanget/pages/shoppages.php" class="hover:text-yellow-500 transition-colors">Catalog</a>
         <a href="#" class="hover:text-yellow-500 transition-colors">Best Sellers</a>
         <a href="#" class="hover:text-yellow-500 transition-colors">Promo</a>
     </div>
@@ -27,7 +27,7 @@
             <i class="far fa-user text-xl"></i>
         </a>
 
-        <a href="../pages/shoppingcart.php" class="relative hover:text-yellow-500 transition-transform hover:scale-110">
+        <a href=" /TokoCantikBanget/pages/shoppingcart.php" class="relative hover:text-yellow-500 transition-transform hover:scale-110">
             <i class="fas fa-shopping-bag text-xl"></i>
             <span class="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">
                 3
@@ -62,7 +62,7 @@
 
         <div class="flex flex-col space-y-6 font-bold text-lg">
             <a href="#" class="border-b pb-2">Home</a>
-            <a href="#" class="border-b pb-2">Catalog</a>
+            <a href="/TokoCantikBanget/pages/shoppages.php" class="border-b pb-2">Catalog</a>
             <a href="#" class="border-b pb-2">Best Sellers</a>
             <a href="#" class="border-b pb-2">Promo</a>
             <a href="#" class="text-yellow-600">Track Order</a>
