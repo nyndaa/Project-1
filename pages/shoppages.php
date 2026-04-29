@@ -110,9 +110,10 @@ x-init="init()">
 
             <!-- ICON MATA -->
             <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-                <button class="bg-white p-3 rounded-full shadow hover:bg-yellow-500 hover:text-white">
+               <a :href="'detailmenu.php?id=' + product.id"
+                class="bg-white p-3 rounded-full shadow hover:bg-yellow-500 hover:text-white">
                     <i class="fas fa-eye"></i>
-                </button>
+                </a>
             </div>
         </div>
 
