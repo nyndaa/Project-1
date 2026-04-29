@@ -13,7 +13,7 @@
 
     <div class="hidden md:flex space-x-8 font-semibold uppercase text-sm tracking-wide">
         <a href="#" class="hover:text-yellow-500 transition-colors">Home</a>
-        <a href="/Project-1/pages/shoppages.php" class="hover:text-yellow-500 transition-colors">Catalog</a>
+       <a href="shoppages.php" class="hover:text-yellow-500 transition-colors">Catalog</a>
         <a href="#" class="hover:text-yellow-500 transition-colors">Best Sellers</a>
         <a href="#" class="hover:text-yellow-500 transition-colors">Promo</a>
     </div>
@@ -62,7 +62,7 @@
 
         <div class="flex flex-col space-y-6 font-bold text-lg">
             <a href="#" class="border-b pb-2">Home</a>
-            <a href="#" class="border-b pb-2">Catalog</a>
+            <a href="shoppages.php" class="border-b pb-2">Catalog</a>
             <a href="#" class="border-b pb-2">Best Sellers</a>
             <a href="#" class="border-b pb-2">Promo</a>
             <a href="#" class="text-yellow-600">Track Order</a>
