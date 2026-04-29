@@ -11,11 +11,6 @@
     <style>
         [x-cloak] { display: none !important; }
     </style>
-    <?php 
-    include "../config/koneksi.php";
-    $query = "SELECT * FROM produk";
-    $result = mysqli_query($conn,$query);
-    ?>
 </head>
 <body class="font-sans text-gray-800 bg-gray-50">
 
@@ -39,86 +34,106 @@ x-data="{
     selectedCategory: 'All',
     products: [],
 
-    init() {
+    init: function() {
         fetch('data_produk.php')
             .then(res => res.json())
-            .then(data => this.products = data)
-            .catch(err => console.log('error:', err));
+            .then(data => {
+                console.log('DATA:', data);
+                this.products = data;
+            })
+            .catch(err => console.log('ERROR:', err));
     },
 
-    get filteredProducts() {
+    filteredProducts: function() {
         return this.products.filter(p => {
-            const matchSearch = p.name.toLowerCase().includes(this.search.toLowerCase());
+            const name = p.name ? p.name.toLowerCase() : '';
+            const matchSearch = name.includes(this.search.toLowerCase());
             const matchCat = this.selectedCategory === 'All' || p.cat === this.selectedCategory;
             return matchSearch && matchCat;
         });
     }
 }"
 x-init="init()">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col lg:flex-row gap-10">
-                
-                <aside class="lg:w-1/4 space-y-8">
-                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100">
-                        <h3 class="font-bold text-xs uppercase tracking-widest mb-4">Search</h3>
-                        <div class="relative">
-                            <input type="text" x-model="search" placeholder="Cari nama barang..." 
-                                   class="w-full bg-gray-50 border-none rounded-2xl px-4 py-3 text-sm focus:ring-2 focus:ring-yellow-500 outline-none">
-                            <i class="fas fa-search absolute right-4 top-3.5 text-gray-300"></i>
-                        </div>
-                    </div>
 
-                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100">
-                        <h3 class="font-bold text-xs uppercase tracking-widest mb-4">Categories</h3>
-                        <div class="flex flex-col space-y-1">
-                            <template x-for="category in ['All', 'Sci-Fi', 'Robot', 'Anime', 'Superhero']" :key="category">
-                                <button @click="selectedCategory = category" 
-                                        :class="selectedCategory === category ? 'bg-yellow-500 text-gray-900 font-bold' : 'text-gray-500 hover:bg-gray-50'"
-                                        class="text-left px-4 py-2.5 rounded-xl text-sm transition-all flex items-center justify-between" >
-                                    <span x-text="category"></span>
-                                    <i class="fas fa-chevron-right text-xs opacity-50" x-show="selectedCategory === category"></i>
-                                </button>
-                            </template>
-                        </div>
-                    </div>
-                </aside>
+<div class="container mx-auto px-6">
+    <div class="flex flex-col lg:flex-row gap-10">
 
-                <div class="lg:w-3/4">
-                    <div x-show="filteredProducts.length === 0" x-cloak class="py-20 text-center bg-white rounded-3xl border-2 border-dashed border-gray-100">
-                        <i class="fas fa-search text-5xl text-gray-200 mb-4"></i>
-                        <p class="text-gray-400">Oops! Produk yang kamu cari tidak ditemukan.</p>
-                        <button @click="search = ''; selectedCategory = 'All'" class="mt-4 text-yellow-600 hover:underline text-sm font-medium">Reset Filter</button>
-                    </div>
+        <!-- SIDEBAR -->
+        <aside class="lg:w-1/4 space-y-8">
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
-                        <template x-for="product in filteredProducts" :key="product.id">
+            <!-- SEARCH -->
+            <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100">
+                <h3 class="font-bold text-xs uppercase tracking-widest mb-4">Search</h3>
+                <div class="relative">
+                    <input type="text" x-model="search" placeholder="Cari nama barang..." 
+                        class="w-full bg-gray-50 rounded-2xl px-4 py-3 text-sm focus:ring-2 focus:ring-yellow-500 outline-none">
+                    <i class="fas fa-search absolute right-4 top-3.5 text-gray-300"></i>
+                </div>
+            </div>
 
-    <div class="group bg-white rounded-3xl overflow-hidden border">
+            <!-- CATEGORY -->
+            <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100">
+                <h3 class="font-bold text-xs uppercase tracking-widest mb-4">Categories</h3>
+                <div class="flex flex-col space-y-1">
+                    <template x-for="category in ['All','Sci-Fi','Robot','Anime','Superhero']" :key="category">
+                        <button @click="selectedCategory = category"
+                            :class="selectedCategory === category ? 'bg-yellow-500 text-gray-900 font-bold' : 'text-gray-500 hover:bg-gray-50'"
+                            class="text-left px-4 py-2.5 rounded-xl text-sm transition-all flex justify-between">
+                            <span x-text="category"></span>
+                        </button>
+                    </template>
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- CONTENT -->
+        <div class="lg:w-3/4">
+
+            <!-- EMPTY STATE -->
+            <div x-show="filteredProducts().length === 0" x-cloak
+                class="py-20 text-center bg-white rounded-3xl border-2 border-dashed border-gray-100">
+                <i class="fas fa-search text-5xl text-gray-200 mb-4"></i>
+                <p class="text-gray-400">Produk tidak ditemukan.</p>
+            </div>
+
+            <!-- GRID PRODUK -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
+
+<template x-for="product in filteredProducts()" :key="product.id">
+    <div class="group bg-white rounded-3xl overflow-hidden border shadow-sm hover:shadow-lg transition">
 
         <!-- GAMBAR -->
         <div class="relative aspect-[4/5] overflow-hidden bg-gray-100">
             <img :src="product.img"
-                 class="w-full h-full object-cover">
-        </div>
+                 class="w-full h-full object-cover group-hover:scale-105 transition">
 
-        <!-- CATEGORY -->
-        <span x-text="product.cat"></span>
-
-        <!-- NAMA -->
-        <h3 x-text="product.name"></h3>
-
-        <!-- HARGA -->
-        <p x-text="'Rp ' + product.price"></p>
-
-    </div>
-
-</template>
-                    </div>
-                </div>
-
+            <!-- ICON MATA -->
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                <button class="bg-white p-3 rounded-full shadow hover:bg-yellow-500 hover:text-white">
+                    <i class="fas fa-eye"></i>
+                </button>
             </div>
         </div>
-    </main>
+
+        <!-- INFO -->
+        <div class="p-4">
+            <span class="text-xs text-gray-400" x-text="product.cat"></span>
+            <h3 class="font-bold text-lg mt-1" x-text="product.name"></h3>
+            <p class="text-yellow-500 font-semibold mt-2"
+               x-text="'Rp ' + product.price"></p>
+        </div>
+
+    </div>
+</template>
+
+</div>
+
+        </div>
+
+    </div>
+</div>
+</main>
 
     <?php include '../template/footer.php';?>
 

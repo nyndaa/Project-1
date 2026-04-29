@@ -12,7 +12,7 @@ if(!$conn){
 }
 
 
-echo "koneksi berhasil!!!!!!!!!!!";
+
 
 
 ?>
