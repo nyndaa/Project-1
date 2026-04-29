@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cuttiest.co - Premium Action Figures & Collectibles</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 512 512%22><text y=%22400%22 font-size=%22400%22>🤖</text></svg>">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -13,7 +14,6 @@
     </style>
 </head>
 <body class="font-sans text-gray-800 bg-gray-50 selection:bg-yellow-200">
-
     <?php include 'template/navbar.php'; ?>
 
     <section class="relative min-h-screen flex items-center overflow-hidden">
