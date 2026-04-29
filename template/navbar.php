@@ -13,7 +13,11 @@
 
     <div class="hidden md:flex space-x-8 font-semibold uppercase text-sm tracking-wide">
         <a href="#" class="hover:text-yellow-500 transition-colors">Home</a>
+<<<<<<< HEAD
         <a href="/TokoCantikBanget/pages/shoppages.php" class="hover:text-yellow-500 transition-colors">Catalog</a>
+=======
+       <a href="shoppages.php" class="hover:text-yellow-500 transition-colors">Catalog</a>
+>>>>>>> 887a2526ce7aa4a2c3a482e7714713acfe8faccc
         <a href="#" class="hover:text-yellow-500 transition-colors">Best Sellers</a>
         <a href="#" class="hover:text-yellow-500 transition-colors">Promo</a>
     </div>
@@ -62,7 +66,11 @@
 
         <div class="flex flex-col space-y-6 font-bold text-lg">
             <a href="#" class="border-b pb-2">Home</a>
+<<<<<<< HEAD
             <a href="/TokoCantikBanget/pages/shoppages.php" class="border-b pb-2">Catalog</a>
+=======
+            <a href="shoppages.php" class="border-b pb-2">Catalog</a>
+>>>>>>> 887a2526ce7aa4a2c3a482e7714713acfe8faccc
             <a href="#" class="border-b pb-2">Best Sellers</a>
             <a href="#" class="border-b pb-2">Promo</a>
             <a href="#" class="text-yellow-600">Track Order</a>

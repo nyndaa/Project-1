@@ -41,7 +41,7 @@
                 </p>
                 
                 <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                    <a href="#featured" class="bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold py-4 px-10 rounded-xl shadow-lg shadow-yellow-500/20 transition-all hover:scale-105 flex items-center justify-center group">
+                    <a href="pages/shoppages.php" class="bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold py-4 px-10 rounded-xl shadow-lg shadow-yellow-500/20 transition-all hover:scale-105 flex items-center justify-center group">
                         Explore Collection
                         <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition"></i>
                     </a>
