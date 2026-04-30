@@ -135,9 +135,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="lg:w-1/2 grid grid-cols-2 gap-4">
-                    <img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaad5b" class="rounded-2xl shadow-2xl mt-8" alt="figure1">
-                    <img src="https://images.unsplash.com/photo-1594736224132-33b45058c971" class="rounded-2xl shadow-2xl" alt="figure2">
+                <div class="lg:w-1/2 flex justify-center items-center">
+                    <img src="https://cdn-icons-png.flaticon.com/256/6005/6005394.png" class="rounded-2xl shadow-2xl mt-8" alt="figure1">
                 </div>
             </div>
         </div>
